@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мир Таро - Главная</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <a href="index.html">Главная</a>
+            <a href="cards.html">Галерея карт</a>
+            <a href="details.html">Значения</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>Добро пожаловать в мир Таро</h1>
+            <p>Открой тайны своего будущего уже сегодня.</p>
+            <a href="#about" class="btn">Узнать больше</a>
+        </section>
+
+<section id="prediction-zone" class="daily-prediction">
+    <h2>Твоя карта дня</h2>
+    
+    <div id="card-display" class="card-box">
+        
+        <div id="card-hidden" onclick="revealPrediction()">
+            <img src="the_wrong_side.jpg" alt="Рубашка карты" class="taro-img">
+            <p class="hint">Нажми на карту, чтобы узнать свою судьбу...</p>
+        </div>
+
+        <div id="card-shown" style="display: none;">
+            <img id="final-card-img" src="" alt="Карта дня" class="taro-img">
+            <h3 id="final-card-name"></h3>
+            <p id="final-card-text"></p>
+            <button class="btn-small" onclick="location.reload()">Вытянуть другую</button>
+        </div>
+        
+    </div>
+</section>
+
+        <section id="about">
+            <h2>О нашем проекте</h2>
+            <p>Здесь вы найдете описания всех Старших Арканов и научитесь понимать их знаки.</p>
+        </section>
+    </main>
+
+    <script>
+function revealPrediction() {
+    const myDeck = [
+    { name: "Шут", img: "the-Fool.jpg", text: "Сегодня день новых начинаний. Не бойся сделать первый шаг в неизвестность!" },
+    { name: "Маг", img: "the-magician.jpg", text: "У тебя есть все ресурсы для успеха. Пришло время проявить инициативу и действовать решительно." },
+    { name: "Жрица", img: "the_priestess.jpg", text: "Доверься своей интуиции. Сегодня ответы придут не через логику, а через тишину и внутренний голос." },
+    { name: "Императрица", img: "the_empress.jpg", text: "День плодородия и созидания. Заботься о том, что любишь, и созерцай красоту вокруг." },
+    { name: "Император", img: "emperor.jpg", text: "Сегодня важны дисциплина и структура. Возьми ситуацию под контроль и действуй по плану." },
+    { name: "Жрец", img: "the_priest.jpg", text: "День следования традициям и поиска мудрого совета. Будь открыт к обучению и наставничеству." },
+    { name: "Влюбленные", img: "the-lovers.jpg", text: "Сегодня день важного выбора. Слушай свое сердце и ищи гармонию в отношениях с миром." },
+    { name: "Колесница", img: "the_chariot.jpg", text: "Вперед к цели! Твоя железная воля поможет преодолеть любые препятствия на пути к триумфу." },
+    { name: "Сила", img: "pover.jpg", text: "Прояви мягкую настойчивость. Твое истинное могущество сегодня — в терпении и самообладании." },
+    { name: "Отшельник", img: "hermit.jpg", text: "Время для самопознания. Пауза и уединение помогут тебе отыскать свет истины внутри себя." },
+    { name: "Колесо Фортуны", img: "the_wheel_of_fortune.jpg", text: "Удача поворачивается к тебе! Будь готов к неожиданным и благоприятным переменам." },
+    { name: "Справедливость", img: "justie.jpg", text: "День честности и баланса. Каждое твое решение сегодня принесет справедливые плоды." },
+    { name: "Повешенный", img: "the_hanged_man.jpg", text: "Посмотри на ситуацию под другим углом. Иногда нужно остановиться, чтобы увидеть главное." },
+    { name: "Смерть", img: "die.jpg", text: "Время отпустить старое. Конец одного этапа открывает двери для чего-то совершенно нового." },
+    { name: "Умеренность", img: "temperance.jpg", text: "Ищи золотую середину. Гармония и спокойствие станут твоими лучшими помощниками сегодня." },
+    { name: "Дьявол", img: "devil.jpg", text: "Будь осторожен с искушениями. Осознай свои привязанности, чтобы обрести истинную свободу." },
+    { name: "Башня", img: "tower.jpg", text: "Не бойся разрушения старых иллюзий. На обломках прошлого ты сможешь построить что-то более прочное." },
+    { name: "Звезда", img: "star.jpg", text: "День надежды и вдохновения. Твои мечты обретают ясные очертания под светом высших сил." },
+    { name: "Луна", img: "moon.jpg", text: "Доверяй интуиции, но остерегайся иллюзий. В сумерках не всё является тем, чем кажется." },
+    { name: "Солнце", img: "sun.jpg", text: "День радости, успеха и ясности. Твое внутреннее сияние согревает всё вокруг!" },
+    { name: "Суд", img: "judgment.jpg", text: "Время духовного пробуждения и подведения итогов. Прими свое прошлое и начни с чистого листа." },
+    { name: "Мир", img: "world.jpg", text: "Поздравляю! Цикл завершен, и ты в полной гармонии. Наслаждайся триумфом и целостностью." }
+];
+
+    const randomIndex = Math.floor(Math.random() * myDeck.length);
+    const result = myDeck[randomIndex];
+
+    document.getElementById('card-hidden').style.display = 'none';
+    document.getElementById('card-shown').style.display = 'block';
+
+    document.getElementById('final-card-img').src = result.img;
+    document.getElementById('final-card-name').innerText = result.name;
+    document.getElementById('final-card-text').innerText = result.text;
+}
+    </script>
+
+</body>
+</html>
+
