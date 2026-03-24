@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация - Мир Таро</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <div class="form-container">
+        <h2>Присоединиться к кругу</h2>
+        <form id="registrationForm">
+            <input type="text" id="regName" placeholder="Твое имя" required>
+            <input type="email" id="regEmail" placeholder="Email" required>
+            <button type="submit" class="btn">Войти</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            
+            // Сохраняем имя в браузере
+            localStorage.setItem('userName', name);
+            
+            // Показываем уведомление
+            alert(`Добро пожаловать, ${name}! Вы успешно вошли.`);
+            
+            // Уводим пользователя обратно на главную
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

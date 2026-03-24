@@ -1,21 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(
-        to bottom, 
-        #0f0c29 0%,
-        #0f0c29 50%,
-        #050505 85%,
-        #000000 100%
-    );
+    /* Твой фон с radial-gradient остается здесь без изменений */
     background-attachment: fixed;
     color: #e0d1ff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     scroll-behavior: smooth;
-    min-height: 100vh;
-
-} 
+}
 
 body {
     margin: 0;
@@ -82,10 +80,11 @@ radial-gradient(2px 2px at 85% 65%, rgba(255,255,255,0.4), transparent),
 }
 
 header {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
+    background: rgba(0, 0, 0, 0.9); /* Черный полупрозрачный фон */
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
     z-index: 1000;
     border-bottom: 1px solid #c19a6b;
 }
@@ -94,6 +93,8 @@ nav {
     display: flex;
     justify-content: center;
     gap: 30px;
+    padding: 15px 0; /* Уменьшили высоту шапки */
+    margin: 0;
 }
 
 nav a {
@@ -367,4 +368,69 @@ main h2 {
     flex-wrap: wrap !important;
     justify-content: center !important;
     gap: 20px !important;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: 100px auto; /* Центрируем по вертикали и горизонтали */
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #d4af37;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.form-container input, .form-container textarea, .form-container select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #1a1a1a;
+    color: white;
+    border: 1px solid #4b0082;
+    border-radius: 5px;
+}
+
+.info-section {
+    padding: 30px 20px; /* Уменьшили вертикальные отступы внутри блока */
+    margin: 10px auto;  /* Уменьшили расстояние между самими блоками */
+    max-width: 900px;
+    text-align: center;
+    line-height: 1.6;   /* Чтобы текст (вода) читался легко */
+}
+
+/* Убираем лишнее пространство у заголовков */
+h2 {
+    margin-top: 10px;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+/* Секция с картой дня тоже должна быть компактнее */
+.daily-prediction {
+    padding: 20px 0;
+    margin-top: 0; 
+}
+
+/* Если у тебя в .hero был огромный отступ снизу, поправь его */
+.hero {
+    padding: 60px 20px;
+    margin-bottom: 20px;
+}
+
+.hero {
+    min-height: auto !important; /* Отменяет высоту во весь экран */
+    padding: 40px 0 !important;   /* Уменьшает отступы сверху и снизу */
+}
+
+/* 2. Подтягиваем все секции друг к другу */
+section {
+    padding: 10px 0 !important;   /* Минимальный отступ между блоками */
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+/* 3. Убираем лишние отступы у заголовков */
+h1, h2 {
+    margin-top: 0 !important;
+    margin-bottom: 10px !important;
 }
