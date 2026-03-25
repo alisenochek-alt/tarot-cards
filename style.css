@@ -434,3 +434,42 @@ h1, h2 {
     margin-top: 0 !important;
     margin-bottom: 10px !important;
 }
+
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    color: #666 !important; /* Изначальный цвет */
+    font-size: 14px;
+    margin-bottom: 15px;
+    transition: 0.3s ease; /* Плавность анимации */
+}
+
+/* Стабильный цвет для всех состояний */
+.back-button:visited, 
+.back-button:active {
+    color: #666;
+}
+
+/* Интерактивность при наведении: увеличение */
+.back-button:hover {
+    color: #666 !important; /* Не меняем цвет */
+    transform: scale(1.05); /* Аккуратное увеличение */
+}
+
+
+.corner-pig {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 400px;
+    height: auto;
+    z-index: 9999;
+    /* УДАЛИ mix-blend-mode ВООБЩЕ */
+    pointer-events: none;
+    animation: fadeInPig 1.5s ease-in-out;
+}
+
+/* Маленькая пасхалка: при наведении (если убрать pointer-events) она может подпрыгивать */
+/* Но пока оставим так, чтобы не мешала кликать по сайту */
